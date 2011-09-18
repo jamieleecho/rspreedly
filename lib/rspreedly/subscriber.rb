@@ -27,7 +27,8 @@ module RSpreedly
                   :subscription_plan_name,
                   :token,
                   :updated_at,
-                  :invoices
+                  :invoices,
+                  :payment_account_on_file
 
     class << self
 
@@ -204,7 +205,7 @@ module RSpreedly
         :on_trial,     :ready_to_renew,             :recurring,
         :store_credit, :store_credit_currency_code, :subscription_plan_name,
         :token,        :updated_at,                 :ready_to_renew_since,
-        :invoices
+        :invoices,     :payment_account_on_file
       ]
 
       opts[:exclude] ||= []

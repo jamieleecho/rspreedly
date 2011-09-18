@@ -93,6 +93,8 @@ module RSpreedly
         if value.respond_to?(:to_xml)
           value = value.to_xml(:no_tag => (RSpreedly.underscore(value.class.to_s) == name)) 
         end
+        # Tags in the Spreedly docs use dashes, not underscores
+        name = name.tr('_', '-')
         xml << "<#{name}>#{value}</#{name}>"
       end
       xml << "</#{inner}>" if inner      
