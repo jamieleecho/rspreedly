@@ -22,6 +22,7 @@
   <in_grace_period type="boolean"></in_grace_period>
   <on-trial type="boolean">false</on-trial>
   <feature-level type="string"></feature-level>
+  <payment-account-on-file type="boolean">false</payment-account-on-file>
   <invoices type="array">
     <invoice>
       <closed type="boolean">true</closed>
