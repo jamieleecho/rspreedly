@@ -60,9 +60,15 @@ module RSpreedly
     end
     
     def pay!(payment)
-      result = api_request(:put, "/invoices/#{self.token}/pay.xml", :body => payment.to_xml(:outer => 'payment'))
-      self.attributes = result["invoice"]
-      true      
+      result = api_request(:put, "/invoices/#{self.token}/pay.xml", :body => payment.to_xml(:outer => 'payment'), :format => nil)
+      begin
+        result = MultiXml.parse result
+        self.attributes = result["invoice"]
+        true      
+      rescue MultiXml::ParseError
+        nil
+      end
+
     end
     
   end
