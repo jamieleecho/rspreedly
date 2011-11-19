@@ -20,6 +20,8 @@ module RSpreedly
         create!
       rescue RSpreedly::Error::Base
         nil
+      rescue MultiXml::ParseError
+        nil
       end      
     end
 
